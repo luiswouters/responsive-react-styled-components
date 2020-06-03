@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { Container } from "@bootstrap-styled/v4";
 import Header from "./Core/Header";
+import FeatureList from "./Core/FeatureList";
+import Footer from "./Core/Footer";
 
-const Wrapper = styled.section``;
 const Title = styled.h1``;
 const Strong = styled.strong`
   font-weight: bold;
@@ -11,7 +13,7 @@ const Subtitle = styled.p``;
 
 function App() {
   return (
-    <Wrapper>
+    <Container>
       <Header />
       <Title>
         Crie este site <Strong>responsivo</Strong> com <Strong>REACT</Strong>{" "}
@@ -22,7 +24,9 @@ function App() {
         Helvetica, sans-serif, arial; Já as cores são: #007f56, #868686,
         #FE9481, #FCDA92 e #9C8CB9
       </Subtitle>
-    </Wrapper>
+      <FeatureList />
+      <Footer />
+    </Container>
   );
 }
 
