@@ -2,8 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## To Start
 
-`yarn` to install dependencies
-`cp .env.example .env` to create a local .env (not versionated)
+`yarn` to install dependencies<br />
+`cp .env.example .env` to create a local .env (not versionated)<br />
 `yarn start` to run local app in the browser with mock API
 
 ## Available Scripts
