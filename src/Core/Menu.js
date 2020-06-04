@@ -32,11 +32,11 @@ const Link = styled.a`
   letter-spacing: -0.0909090909em;
   line-height: 1.18181818182em;
   text-decoration: none;
-  margin-right: 20px;
   background-color: ${COLORS.sitePurple};
   display: block;
   padding: 3px 0;
   @media (min-width: 768px) {
+    margin-right: 20px;
     color: ${COLORS.siteGreen};
     background: none;
     padding: 0;

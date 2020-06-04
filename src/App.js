@@ -38,6 +38,19 @@ const Subtitle = styled.h3`
   line-height: 1.1875em;
   color: ${COLORS.siteGrey};
   text-align: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+const Color = styled.span`
+  display: inline-block;
+  background: ${(props) => props.color};
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  vertical-align: middle;
+  margin-bottom: 7px;
+  margin-right: 7px;
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -162,7 +175,12 @@ function App({ content, loadContent }) {
       });
     }
   }, [loadContent, content]);
-  const handleBlackFriday = () => setBlackFriday(!blackFriday);
+  const handleBlackFriday = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    setBlackFriday(!blackFriday);
+  };
   return (
     <Container>
       <GlobalStyle blackFriday={blackFriday} />
@@ -173,8 +191,14 @@ function App({ content, loadContent }) {
       </Title>
       <Subtitle>
         A fonte utilizada é a Open Sans de 300 a 800. exemplo: "Open Sans",
-        Helvetica, sans-serif, arial; Já as cores são: #007f56, #868686,
-        #FE9481, #FCDA92 e #9C8CB9
+        Helvetica, sans-serif, arial; Já as cores são:{" "}
+        <Color color={COLORS.siteGreen} />
+        #007f56, <Color color={COLORS.siteGrey} />
+        #868686,
+        <Color color={COLORS.siteRed} />
+        #FE9481, <Color color={COLORS.siteYellow} />
+        #FCDA92 e <Color color={COLORS.sitePurple} />
+        #9C8CB9
       </Subtitle>
       {content.features.length > 0 ? (
         <FeatureList

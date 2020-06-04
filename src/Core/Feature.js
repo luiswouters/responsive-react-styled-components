@@ -51,6 +51,13 @@ const Description = styled.p`
     display: block;
   }
 `;
+const Content = styled.p`
+  font-weight: 300;
+  letter-spacing: -0.05555555556em;
+  color: ${COLORS.siteGrey};
+  margin: 0;
+  padding: 7px;
+`;
 const Action = styled.button`
   color: ${COLORS.white};
   font-weight: 400;
@@ -61,8 +68,12 @@ const Action = styled.button`
   float: right;
   margin-right: 7px;
   display: none;
+  cursor: pointer;
   @media (min-width: 768px) {
     display: block;
+  }
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -77,37 +88,57 @@ function Feature({
 }) {
   const [expand, setExpand] = useState(false);
   const [modal, setModal] = useState(false);
-  const handleClose = () => setModal(!modal);
-  const handleExpand = () => setExpand(!expand);
+  const handleClose = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    setModal(!modal);
+  };
+  const handleExpand = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    setExpand(!expand);
+  };
   return (
     <Wrapper>
       <Title>
-        <LinkTitle img={image} color={color} href="#">
+        <LinkTitle
+          img={image}
+          color={color}
+          href="#"
+          onClick={(event) =>
+            type === "expand"
+              ? handleExpand(event)
+              : type === "modal"
+              ? handleClose(event)
+              : blackFridayFunc(event)
+          }
+        >
           {title}
         </LinkTitle>
       </Title>
-      <Description>
-        {description}
-        {type === "expand" && expand ? (
-          <>
-            <br />
-            <br />
-            {content}
-          </>
-        ) : (
-          ""
-        )}
-      </Description>
+      <Description>{description}</Description>
+      {type === "expand" && expand ? (
+        <Content>
+          <br />
+          <br />
+          {content}
+        </Content>
+      ) : (
+        ""
+      )}
+
       {type === "modal" ? (
-        <Action color={color} onClick={() => handleClose()}>
+        <Action color={color} onClick={(event) => handleClose(event)}>
           Leia mais...
         </Action>
       ) : type === "expand" ? (
-        <Action color={color} onClick={() => handleExpand()}>
+        <Action color={color} onClick={(event) => handleExpand(event)}>
           Leia mais...
         </Action>
       ) : type === "theme" ? (
-        <Action color={color} onClick={() => blackFridayFunc()}>
+        <Action color={color} onClick={(event) => blackFridayFunc(event)}>
           Alterar tema
         </Action>
       ) : (
@@ -116,7 +147,7 @@ function Feature({
       <Modal isOpen={modal} toggle={() => handleClose()}>
         <ModalBody>{content}</ModalBody>
         <ModalFooter>
-          <Button color="secondary" onClick={() => handleClose()}>
+          <Button color="secondary" onClick={(event) => handleClose(event)}>
             Fechar
           </Button>
         </ModalFooter>

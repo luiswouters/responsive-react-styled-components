@@ -4,15 +4,21 @@ import LogoImg from "../Assets/Img/logo_small.png";
 import PropTypes from "prop-types";
 
 const Wrapper = styled.footer`
-  display: flex;
   padding: 20px 0 10px 0;
+  text-align: center;
+  @media (min-width: 768px) {
+    display: flex;
+    text-align: left;
+  }
 `;
 const Copyright = styled.p`
   font-weight: 300;
   font-size: 80%;
   letter-spacing: -0.05555555556em;
   align-self: center;
-  margin: 0 70px 0 0;
+  @media (min-width: 768px) {
+    margin: 0 70px 0 0;
+  }
 `;
 const BrandList = styled.ul`
   align-self: center;
@@ -33,7 +39,6 @@ const Brand = styled.a`
 `;
 const Blog = styled.a`
   align-self: center;
-  margin-left: auto;
   font-size: 0;
   &:after {
     content: "";
@@ -42,6 +47,11 @@ const Blog = styled.a`
     height: 39px;
     background-image: url(${LogoImg});
     background-repeat: no-repeat;
+  }
+  display: inline-block;
+  @media (min-width: 768px) {
+    margin-left: auto;
+    display: block;
   }
 `;
 
