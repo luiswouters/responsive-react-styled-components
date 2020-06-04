@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import COLORS from "./Colors";
+import PropTypes from "prop-types";
 
 const Wrapper = styled.nav`
   display: block;
@@ -43,19 +44,24 @@ const Link = styled.a`
   }
 `;
 
-function Menu() {
+function Menu({ list }) {
   return (
     <Wrapper>
       <List>
-        <ListItem>
-          <Link href="#gotolink">Nome do link!</Link>
-        </ListItem>
-        <ListItem>
-          <Link href="#gotolink">Nome do link!</Link>
-        </ListItem>
+        {list.map((item) => {
+          return (
+            <ListItem>
+              <Link href={item.link}>{item.name}</Link>
+            </ListItem>
+          );
+        })}
       </List>
     </Wrapper>
   );
 }
+
+Menu.propTypes = {
+  list: PropTypes.array.isRequired,
+};
 
 export default Menu;

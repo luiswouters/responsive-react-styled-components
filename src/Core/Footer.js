@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LogoImg from "../Assets/Img/logo_small.png";
 import BrandDrogaRaia from "../Assets/Img/logo_drogaraia.png";
+import PropTypes from "prop-types";
 
 const Wrapper = styled.footer`
   display: flex;
@@ -28,7 +29,7 @@ const Brand = styled.a`
     display: inline-block;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    background-image: url(${(props) => props.img});
+    background-image: url(./Assets/Img/${(props) => props.img});
   }
 `;
 const Blog = styled.a`
@@ -45,20 +46,34 @@ const Blog = styled.a`
   }
 `;
 
-function Footer() {
+function Footer({ list }) {
   return (
     <Wrapper>
       <Copyright>RD 2017. Todos os direitos reservados</Copyright>
       <BrandList>
         <BrandListItem>
-          <Brand href="#" img={BrandDrogaRaia} width="80px" height="40px">
-            Droga Raia
-          </Brand>
+          {list.map((item) => {
+            return (
+              <Brand
+                key={item.id}
+                href={item.link}
+                img={item.image}
+                width="80px"
+                height="40px"
+              >
+                {item.name}
+              </Brand>
+            );
+          })}
         </BrandListItem>
       </BrandList>
       <Blog href="http://www.carloshps.com.br/blog">Blog</Blog>
     </Wrapper>
   );
 }
+
+Footer.propTypes = {
+  list: PropTypes.array.isRequired,
+};
 
 export default Footer;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Menu from "./Menu";
 import LogoImg from "../Assets/Img/logo.png";
 import COLORS from "./Colors";
+import PropTypes from "prop-types";
 
 const Wrapper = styled.header`
   display: block;
@@ -31,7 +32,7 @@ const Logo = styled.a`
   }
 `;
 
-function Header() {
+function Header({ list }) {
   return (
     <Wrapper>
       <LogoWrapper>
@@ -39,9 +40,13 @@ function Header() {
           RaiaDrogasil S.A. - Gente, Saúde e Bem-estar.
         </Logo>
       </LogoWrapper>
-      <Menu />
+      <Menu list={list} />
     </Wrapper>
   );
 }
+
+Header.propTypes = {
+  list: PropTypes.array.isRequired,
+};
 
 export default Header;
