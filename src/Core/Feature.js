@@ -2,16 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import COLORS from "./Colors";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "@bootstrap-styled/v4";
-import ImgDesktopResponsiveDesign from "../Assets/Img/desktop-responsive-design.png";
-import ImgMobileResponsiveDesign from "../Assets/Img/mobile-responsive-design.png";
-import ImgTabletsResponsiveDesign from "../Assets/Img/tablets-responsive-design.png";
+import { Button, Modal, ModalBody, ModalFooter } from "@bootstrap-styled/v4";
 
 const Wrapper = styled.div`
   background-color: ${COLORS.white};

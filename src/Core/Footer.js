@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import LogoImg from "../Assets/Img/logo_small.png";
-import BrandDrogaRaia from "../Assets/Img/logo_drogaraia.png";
 import PropTypes from "prop-types";
 
 const Wrapper = styled.footer`

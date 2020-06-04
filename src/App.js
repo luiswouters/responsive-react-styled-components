@@ -161,7 +161,7 @@ function App({ content, loadContent }) {
         alert("Loading courses failed:" + error);
       });
     }
-  }, [content]);
+  }, [loadContent, content]);
   const handleBlackFriday = () => setBlackFriday(!blackFriday);
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./Redux/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
