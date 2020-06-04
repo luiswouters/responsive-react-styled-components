@@ -4,12 +4,27 @@ import { Container } from "@bootstrap-styled/v4";
 import Header from "./Core/Header";
 import FeatureList from "./Core/FeatureList";
 import Footer from "./Core/Footer";
+import COLORS from "./Core/Colors";
 
-const Title = styled.h1``;
-const Strong = styled.strong`
-  font-weight: bold;
+const Title = styled.h2`
+  font-size: 3.3333333333em;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1em;
+  color: ${COLORS.siteGreen};
+  text-align: center;
 `;
-const Subtitle = styled.p``;
+const Strong = styled.strong`
+  font-weight: 800;
+`;
+const Subtitle = styled.h3`
+  font-size: 1.7777777778em;
+  font-weight: 300;
+  letter-spacing: -0.0625em;
+  line-height: 1.1875em;
+  color: ${COLORS.siteGrey};
+  text-align: center;
+`;
 
 function App() {
   return (
