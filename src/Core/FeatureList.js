@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Row, Col } from "@bootstrap-styled/v4";
+import {
+  Row,
+  Col,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "@bootstrap-styled/v4";
 import COLORS from "./Colors";
 import ImgDesktopResponsiveDesign from "../Assets/Img/desktop-responsive-design.png";
 import ImgMobileResponsiveDesign from "../Assets/Img/mobile-responsive-design.png";
@@ -70,6 +78,8 @@ const Action = styled.button`
 `;
 
 function FeatureList() {
+  const [modal, setModal] = useState(false);
+  const handleClose = () => setModal(!modal);
   return (
     <Wrapper>
       <Row>
@@ -106,7 +116,9 @@ function FeatureList() {
               Quando pressionado o botão Leia mais... o restante da informação
               deverá aparecer em scroll down.
             </Description>
-            <Action color={COLORS.siteRed}>Leia mais...</Action>
+            <Action color={COLORS.siteRed} onClick={() => handleClose()}>
+              Leia mais...
+            </Action>
           </Feature>
         </Col>
         <Col xs="12" md="4">
@@ -128,6 +140,26 @@ function FeatureList() {
           </Feature>
         </Col>
       </Row>
+      <Modal isOpen={modal} toggle={() => handleClose()}>
+        <ModalHeader toggle={() => handleClose()}>Modal title</ModalHeader>
+        <ModalBody>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={() => handleClose()}>
+            Do Something
+          </Button>
+          <Button color="secondary" onClick={() => handleClose()}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
     </Wrapper>
   );
 }
