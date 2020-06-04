@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To Start
+
+`yarn` to install dependencies
+`cp .env.example .env` to create a local .env (not versionated)
+`yarn start` to run local app in the browser with mock API
+
 ## Available Scripts
 
 In the project directory, you can run:
